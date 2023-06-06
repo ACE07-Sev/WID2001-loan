@@ -58,8 +58,8 @@ def calculate_loan(customer: Customer):
 
 # Create the Streamlit app
 def main():
-    bg = """<div style='background-color:black; padding:13px'>
-              <h1 style='color:white'>Streamlit Loan Elgibility Prediction App</h1>
+    bg = """<div style='background-color:white; padding:13px'>
+              <h1 style='color:black'>Financial Credit Scoring App</h1>
        </div>"""
     st.markdown(bg, unsafe_allow_html=True)
     left, right = st.columns((2,2))
