@@ -82,7 +82,7 @@ def main():
             st.success(f'You are {result} for the loan, with an interest rate of {interest_rate} percentage.', icon="✅")
         else:
             result = "Rejected"
-            st.error(f'You are {result} for the loan. Please contact our support center for manually proceeding with your application.')
+            st.success(f'You are {result} for the loan. Please contact our support center for manually proceeding with your application.')
             
 # Run the app
 if __name__ == "__main__":
