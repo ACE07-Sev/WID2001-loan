@@ -59,7 +59,7 @@ def calculate_loan(customer: Customer):
 # Create the Streamlit app
 def main():
     bg = """<div style='background-color:white; padding:13px'>
-              <h1 style='color:black'>Financial Credit Scoring App</h1>
+              <h1 style='color:black'>Financial Credit Scoring for Loan Application</h1>
        </div>"""
     st.markdown(bg, unsafe_allow_html=True)
     left, right = st.columns((2,2))
@@ -76,9 +76,14 @@ def main():
     # if button is clicked
     if button:
         # make prediction
-        result = calculate_loan(Customer(age, applicant_income, creditscore, income_to_debt_ratio, bankruptcy_within_last_two_years, has_outstanding_judgments_or_liens, employment_status, loanAmount, loan_amount_term))
-        st.success(f'You are {result} for the loan')
-
+        result, interest_rate = calculate_loan(Customer(age, applicant_income, creditscore, income_to_debt_ratio, bankruptcy_within_last_two_years, has_outstanding_judgments_or_liens, employment_status, loanAmount, loan_amount_term))
+        if result:
+            result = "Approved"
+            st.success(f'You are {result} for the loan, with an interest rate of {interest_rate} percentage.')
+        else:
+            result = "Rejected"
+            st.success(f'You are {result} for the loan. Please contact our support center for manually proceeding with your application.')
+            
 # Run the app
 if __name__ == "__main__":
     main()
