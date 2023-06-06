@@ -79,10 +79,10 @@ def main():
         result, interest_rate = calculate_loan(Customer(age, applicant_income, creditscore, income_to_debt_ratio, bankruptcy_within_last_two_years, has_outstanding_judgments_or_liens, employment_status, loanAmount, loan_amount_term))
         if result:
             result = "Approved"
-            st.success(f'You are {result} for the loan, with an interest rate of {interest_rate} percentage.')
+            st.success(f'You are {result} for the loan, with an interest rate of {interest_rate} percentage.', icon="✅")
         else:
             result = "Rejected"
-            st.success(f'You are {result} for the loan. Please contact our support center for manually proceeding with your application.')
+            st.error(f'You are {result} for the loan. Please contact our support center for manually proceeding with your application.')
             
 # Run the app
 if __name__ == "__main__":
